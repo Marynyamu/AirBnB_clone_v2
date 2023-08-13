@@ -42,7 +42,7 @@ class BaseModel:
         """
         
         self.updated_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """Convert instance 

@@ -4,7 +4,7 @@
 from models.base_model import BaseModel
 
 
-class Amenity(BaseModel):
+class Place(BaseModel):
     """The class inherit from BaseModel"""
 
     city_id = ""
