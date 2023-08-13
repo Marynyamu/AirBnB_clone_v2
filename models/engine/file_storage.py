@@ -14,7 +14,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
-class_dict = {
+"""class_dict = {
     "BaseModel": BaseModel,
     "User": User,
     "Place": Place,
@@ -23,7 +23,7 @@ class_dict = {
     "Review": Review,
     "State": State
 }
-# Filestorage == type(self)
+ Filestorage == type(self)"""
 
 
 class FileStorage:
