@@ -50,10 +50,8 @@ class BaseModel:
         into dict format
         """
 
-        dct = self.__dict__.copy()
-        dct.update({
-            "__class__": self.__class__.__name__,
-            "updated_at": self.updated_at.isoformat(),
-            "created_at": self.created_at.isoformat()
-            })
-        return dct
+        my_dict = self.__dict__.copy()
+        my_dict['created_at'] = self.created_at.isoformat()
+        my_dict['updated_at'] = self.updated_at.isoformat()
+        my_dict['__class__'] = self.__class__.__name__
+        return my_dict
