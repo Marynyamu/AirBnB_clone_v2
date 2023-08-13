@@ -18,16 +18,17 @@ class BaseModel:
         keyword argument or otherwise
         """
 
-        if not kwargs:
-            self.id = (uuid.uuid4())
-            self.updated_at = datetime.now()
-            self.created_at = datetime.now()
-        else:
-            for k in kwargs:
-                if k in ['created_at', 'updated_at']:
-                    setattr(self, k, datetime.fromisoformat(kwargs[k]))
-                elif k != '__class__':
-                    setattr(self, k, kwargs[k])
+        if kwargs == {}:
+            self.id = str(uuid.uuid4())
+            self.created_at = self.updated_at = datetime.now()
+            models.storage.new(self)
+            return
+
+        for key, value in kwargs.items():
+            if key in ['created_at', 'updated_at']:
+                self.__dict__[key] = datetime.fromisoformat(value)
+            elif key != '__class__':
+                self.__dict__[key] = value
 
     def __str__(self):
         """it return a string
