@@ -34,8 +34,8 @@ class BaseModel:
         representation of an instance
         """
 
-        return '[{}] ({}) {}'.format(
-            self.__class__.__name__, self.id, self.__dict__)
+        clsName = self.__class__.__name__
+        return "[{}] ({}) {}".format(clsName, self.id, self.__dict__)
 
     def save(self):
         """Updates updated_at with
